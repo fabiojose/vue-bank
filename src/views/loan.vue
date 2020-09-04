@@ -34,7 +34,7 @@
             <v-stepper-items class="px-0">
               <v-stepper-content step="1" class="text-center">
                 <v-avatar size="80" color="green lighten-2" class="mb-10 mx-auto elevation-1">
-                  <v-icon size="70" class="white--text" dark>mdi-currency-ngn</v-icon>
+                  <v-icon size="70" class="white--text" dark>mdi-currency-blr</v-icon>
                 </v-avatar>
                 <v-container grid-list-xs>
                   <v-row no-gutters class="justify-center">

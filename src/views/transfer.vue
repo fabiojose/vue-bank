@@ -107,7 +107,7 @@
                   class="mb-10 mx-auto elevation-1"
                 >
                   <v-icon size="70" class="white--text" dark
-                    >mdi-currency-ngn</v-icon
+                    >mdi-currency-usd</v-icon
                   >
                 </v-avatar>
                 <v-container grid-list-xs>

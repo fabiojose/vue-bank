@@ -4,12 +4,13 @@
       <v-btn @click="$router.go(-1)" icon>
         <v-icon>mdi-arrow-left</v-icon>
       </v-btn>
-      <v-toolbar-title class="font-weight-bold">VUETRIFY</v-toolbar-title>
+      <v-toolbar-title class="font-weight-bold">P8s Pagamentos</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn @click="log_out()" icon>
         <v-icon>mdi-account-off</v-icon>
       </v-btn>
     </v-app-bar>
+    <!--
     <v-bottom-navigation
       v-if="!authPage"
       v-model="bottomNav"
@@ -26,12 +27,13 @@
         <v-icon x-large>mdi-view-dashboard</v-icon>
       </v-btn>
       <v-btn to="finance_list_view">
-        <v-icon x-large>mdi-currency-ngn</v-icon>
+        <v-icon x-large>mdi-currency-usd</v-icon>
       </v-btn>
       <v-btn to="account_view">
         <v-icon x-large>mdi-account</v-icon>
       </v-btn>
     </v-bottom-navigation>
+    -->
     <v-overlay :value="loader" z-index="99999">
       <v-progress-circular width="15" size="120" indeterminate color="indigo"></v-progress-circular>
     </v-overlay>

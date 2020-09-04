@@ -7,7 +7,7 @@
             <div>
               <v-card-title class="headline white--text">{{ this.user_profile.last_name + ' ' + this.user_profile.first_name}}</v-card-title>
               <v-card-subtitle class="white--text subtitle-1">
-                <v-icon color="white">mdi-currency-ngn</v-icon>{{this.user_profile.balance}}
+                <v-icon color="white">mdi-currency-usd</v-icon>{{this.user_profile.balance}}
               </v-card-subtitle>
             </div>
             <v-avatar class="ma-3" size="60" color="white">

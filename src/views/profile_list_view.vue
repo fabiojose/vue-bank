@@ -8,7 +8,7 @@
             <div>
               <v-card-title class="headline white--text">John Doe</v-card-title>
               <v-card-subtitle class="white--text subtitle-1">
-                <v-icon color="white">mdi-currency-ngn</v-icon>2,232,23.23
+                <v-icon color="white">mdi-currency-usd</v-icon>2,232,23.23
               </v-card-subtitle>
             </div>
 
