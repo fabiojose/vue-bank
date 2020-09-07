@@ -21,6 +21,18 @@
         <v-icon>mdi-close</v-icon>
       </v-btn>
     </v-snackbar>
+    <v-row justify="center">
+      <v-dialog v-model="dialog" persistent max-width="290">
+        <v-card>
+          <v-card-title class="headline">Transferência</v-card-title>
+          <v-card-text>Realizada com sucesso!</v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="green darken-1" text @click="home()">OK</v-btn>
+          </v-card-actions>
+        </v-card>
+      </v-dialog>
+    </v-row>
     <v-row no-gutters class="d-flex justify-center mb-5">
       <v-col cols="12" class="pa-0">
         <v-alert
@@ -30,7 +42,7 @@
           class="text-center mb-0"
           type="info"
         >
-          Enter the Account Number your want to send the funds to.
+          Digite o Número da Conta que receberá o valor desta transferência
         </v-alert>
         <v-alert
           v-show="form_directive && e1 == 2"
@@ -39,7 +51,7 @@
           class="text-center mb-0"
           type="info"
         >
-          Enter the Amount your want.
+          Digite o Valor desta Transferência
         </v-alert>
         <v-alert
           v-show="form_directive && e1 == 3"
@@ -48,7 +60,7 @@
           class="text-center mb-0"
           type="info"
         >
-          Enter your 4 Digit Security Pin, and click on the KEY
+          Digite sua Senha, e clique na chave
         </v-alert>
         <v-card class="mx-auto elevation-0" light style="border-radius:0;">
           <v-snackbar
@@ -83,21 +95,21 @@
                         outlined
                         dense
                         type="number"
-                        label="Account #NO"
+                        label="Conta"
                         class="pa-0"
                       ></v-text-field>
                       <v-text-field
                         v-model="trans_data.name"
                         outlined
                         dense
-                        label="Account Name"
+                        label="Apelido da Conta"
                         class="pa-0"
                       ></v-text-field>
                     </v-col>
                   </v-row>
                 </v-container>
                 <v-btn block class="white indigo--text" @click="e1 = 2" text>
-                  CHOOSE AMOUNT<v-icon large>mdi-chevron-right</v-icon>
+                  DEFINIR O VALOR<v-icon large>mdi-chevron-right</v-icon>
                 </v-btn>
               </v-stepper-content>
               <v-stepper-content step="2" class="text-center">
@@ -118,17 +130,17 @@
                         outlined
                         dense
                         type="number"
-                        label="Amount"
+                        label="Valor"
                         class="pa-0"
                       ></v-text-field>
                     </v-col>
                   </v-row>
                 </v-container>
                 <v-btn class="white indigo--text" @click="pin = '',e1 = 3" text>
-                  AUTHENTICATE<v-icon large>mdi-chevron-right</v-icon>
+                  CONFIRMAR<v-icon large>mdi-chevron-right</v-icon>
                 </v-btn>
                 <v-btn block class="white indigo--text" @click="e1 = 1" text>
-                  <v-icon large>mdi-chevron-left</v-icon> BACK
+                  <v-icon large>mdi-chevron-left</v-icon> VOLTAR
                 </v-btn>
               </v-stepper-content>
               <v-stepper-content step="3" class="text-center">
@@ -160,7 +172,7 @@
                   <v-icon large>mdi-key</v-icon>
                 </v-btn>
                 <v-btn block class="white indigo--text" @click="e1 = 2" text>
-                  <v-icon large>mdi-chevron-left</v-icon>BACK
+                  <v-icon large>mdi-chevron-left</v-icon>VOLTAR
                 </v-btn>
               </v-stepper-content>
             </v-stepper-items>
@@ -228,7 +240,7 @@ export default {
         this.trans_data.amount == ""
       ) {
         this.response.status = "error";
-        this.response.message = "One or more empty fields.";
+        this.response.message = "Campos requeridos estão vazios";
         this.e1 = 1;
         this.loader = false;
         this.snackbar = true;
@@ -238,13 +250,13 @@ export default {
         String(localStorage.getItem(String(this.user_profile.acct_no)))
       ) {
         this.response.status = "error";
-        this.response.message = "Incorrect Pin.";
+        this.response.message = "PIN incorreto.";
         this.loader = false;
         this.snackbar = true;
         return;
       } else if (this.user_profile.balance < this.trans_data.amount) {
         this.response.status = "error";
-        this.response.message = "Insufficient Funds!.";
+        this.response.message = "Saldo insuficiente!";
         this.loader = false;
         this.snackbar = true;
         return;
@@ -298,13 +310,18 @@ export default {
             JSON.stringify(this.new_banking_details)
           );
           this.response.status = "success";
-          this.response.message = "Transfer Successful.";
+          this.response.message = "Transferência Realizada.";
           this.load_data();
           this.loader = false;
-          this.snackbar = true;
+          //this.snackbar = true;
+          this.dialog = true;
+          //this.$router.push("finance_list_view")
           return;
         }, 3000);
       }
+    },
+    home() {
+      this.$router.push("finance_list_view")
     }
   }
 };

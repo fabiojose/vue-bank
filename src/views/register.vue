@@ -53,7 +53,7 @@
                     block
                     outlined
                     class="ma-2">
-                    Retorna o Login
+                    Retornar ao Login
                   </v-btn>
                 </v-container>
               </v-stepper-content>

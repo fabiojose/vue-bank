@@ -8,11 +8,14 @@
               <v-card-title class="headline white--text">
                 R$ {{ this.user_profile.balance}}
               </v-card-title>
+              <v-card-subtitle class="white--text">
+                {{ this.user_profile.last_name + ' ' + this.user_profile.first_name}}
+              </v-card-subtitle>
             </div>
 
             <div>
-              <v-card-title class="white--text">
-                {{ this.user_profile.last_name + ' ' + this.user_profile.first_name}}
+              <v-card-title class="headline white--text">
+                {{ this.user_profile.acct_no}}
               </v-card-title>
             </div>
           </div>
