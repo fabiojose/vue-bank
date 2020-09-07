@@ -21,11 +21,23 @@
         <v-icon>mdi-close</v-icon>
       </v-btn>
     </v-snackbar>
+
     <v-row justify="center">
       <v-dialog v-model="dialog" persistent max-width="290">
         <v-card>
           <v-card-title class="headline">Transferência</v-card-title>
-          <v-card-text>Realizada com sucesso!</v-card-text>
+          <v-card-text>Sua transferência foi realizada com sucesso.</v-card-text>
+          <div>
+            <v-card-title class="headline white--text">
+              {{ this.trans_data.acct_no}}
+            </v-card-title>
+            <v-card-subtitle class="white--text">
+              {{ this.trans_data.name}}
+            </v-card-subtitle>
+            <v-card-subtitle class="white--text">
+              {{ this.trans_data.amount}}
+            </v-card-subtitle>
+          </div>
           <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn color="green darken-1" text @click="home()">OK</v-btn>
@@ -33,6 +45,7 @@
         </v-card>
       </v-dialog>
     </v-row>
+
     <v-row no-gutters class="d-flex justify-center mb-5">
       <v-col cols="12" class="pa-0">
         <v-alert
